@@ -5,9 +5,21 @@ import java.util.Objects;
 public class Klass {
 
     private int number;
+    private Student classLeader;
 
     public Klass(int number) {
         this.number = number;
+    }
+
+    public void assignLeader(Student student) {
+        if (!student.isIn(this)) {
+            System.out.println("It is not one of us.");
+        }
+        this.classLeader = student;
+    }
+
+    public boolean isLeader(Student student) {
+        return this.classLeader == student;
     }
 
     @Override
@@ -16,6 +28,7 @@ public class Klass {
         if (!(o instanceof Klass klass)) return false;
         return number == klass.number;
     }
+
 
     @Override
     public int hashCode() {
