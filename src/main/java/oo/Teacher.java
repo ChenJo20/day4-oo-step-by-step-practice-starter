@@ -21,7 +21,7 @@ public class Teacher extends Person {
 
     @Override
     public void sayWhenSomeoneBecomeClassLeader(Student student, Klass klass){
-        System.out.println(String.format("I am %s, %s of Class %d. I know %s become Leader.", name, TEACHER_ROLE, klass.getNumber(), student.name));
+        System.out.println(String.format(Sentence_PATTERN_WHEN_SOMEONE_BECOME_CLASSLEADER, name, TEACHER_ROLE, klass.getNumber(), student.name));
     }
 
     public void assignTo(Klass klass) {
