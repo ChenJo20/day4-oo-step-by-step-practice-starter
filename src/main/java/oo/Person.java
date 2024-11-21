@@ -13,6 +13,7 @@ public class Person {
     public static final String SENTENCE_PATTERN_WHEN_SOMEONE_BECOME_CLASS_LEADER = "I am %s, %s of Class %d. I know %s become Leader.";
     public static final String DOT = ".";
     public static final String EMPTY = "";
+
     public Person(int id, String name, int age) {
         this.id = id;
         this.name = name;
