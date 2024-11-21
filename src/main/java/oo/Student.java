@@ -32,7 +32,12 @@ public class Student extends Person {
 
     public void join(Klass klass) {
         this.klass = klass;
-        klass.getStudents().add(this);
+        klass.getPeople().add(this);
+    }
+
+    @Override
+    public void sayWhenSomeoneBecomeClassLeader(Student student, Klass klass){
+        System.out.println(String.format("I am %s, %s of Class %d. I know %s become Leader.", name, STUDENT_ROLE, klass.getNumber(), student.name));
     }
 
     public String introduceClass() {

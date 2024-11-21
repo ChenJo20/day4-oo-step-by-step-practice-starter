@@ -8,8 +8,7 @@ public class Klass {
 
     private int number;
     private Student classLeader;
-    private List<Student> students = new ArrayList<>();
-    private List<Teacher> teachers = new ArrayList<>();
+    private List<Person> people = new ArrayList<>();
 
     public Klass(int number) {
         this.number = number;
@@ -20,13 +19,13 @@ public class Klass {
             System.out.println("It is not one of us.");
         }
         this.classLeader = student;
-        teachers.forEach(teacher ->
-                teacher.sayWhenSomeoneBecomeClassLeader(student, this)
+        people.forEach(individual ->
+                individual.sayWhenSomeoneBecomeClassLeader(student, this)
         );
     }
 
-    public void attach(Teacher teacher) {
-        teachers.add(teacher);
+    public void attach(Person person) {
+        people.add(person);
     }
 
     public boolean isLeader(Student student) {
@@ -50,19 +49,7 @@ public class Klass {
         return number;
     }
 
-    public List<Student> getStudents() {
-        return students;
-    }
-
-    public void setStudents(List<Student> students) {
-        this.students = students;
-    }
-
-    public List<Teacher> getTeachers() {
-        return teachers;
-    }
-
-    public void setTeachers(List<Teacher> teachers) {
-        this.teachers = teachers;
+    public List<Person> getPeople() {
+        return people;
     }
 }
