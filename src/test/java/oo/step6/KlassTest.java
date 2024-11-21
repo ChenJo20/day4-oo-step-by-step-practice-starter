@@ -40,7 +40,7 @@ public class KlassTest {
         Student bob = new Student(1, "Bob", 18);
         bob.join(klass);
         klass.attach(bob);
-        Student tom = new Student(1, "Tom", 18);
+        Student tom = new Student(2, "Tom", 18);
         tom.join(klass);
 
         klass.assignLeader(tom);
