@@ -1,5 +1,7 @@
 package oo;
 
+import java.util.Objects;
+
 public class Person {
 
     private int id;
@@ -23,6 +25,6 @@ public class Person {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(id);
     }
 }
