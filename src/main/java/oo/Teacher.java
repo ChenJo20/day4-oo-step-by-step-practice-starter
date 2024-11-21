@@ -38,7 +38,7 @@ public class Teacher extends Person {
         return " I teach Class " + klasses.stream()
                 .map(Klass::getNumber)
                 .map(String::valueOf)
-                .collect(Collectors.joining(",")) + ".";
+                .collect(Collectors.joining(", ")) + ".";
     }
 
     @Override
