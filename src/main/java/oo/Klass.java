@@ -20,9 +20,12 @@ public class Klass {
             System.out.println(CAN_NOT_FIND_STUDENT_IN_THIS_CLASS_ERROR_MESSAGE);
         }
         this.classLeader = student;
-        people.forEach(individual ->
+
+        people.stream()
+                .filter(people -> people != student)
+                .forEach(individual ->
                 individual.sayWhenSomeoneBecomeClassLeader(student, this)
-        );
+                );
     }
 
     public void attach(Person person) {
