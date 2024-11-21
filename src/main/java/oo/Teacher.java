@@ -16,7 +16,7 @@ public class Teacher extends Person {
 
     @Override
     public String introduce() {
-        return super.introduce() + " I am a " + TEACHER_ROLE + "." + showTeachClasses();
+        return super.introduce() + " I am a " + TEACHER_ROLE + "." + introduceClass();
     }
 
     public void assignTo(Klass klass) {
@@ -32,7 +32,7 @@ public class Teacher extends Person {
         return klasses.contains(student.getKlass());
     }
 
-    public String showTeachClasses() {
+    public String introduceClass() {
         if (klasses.isEmpty()) {
             return "";
         }
