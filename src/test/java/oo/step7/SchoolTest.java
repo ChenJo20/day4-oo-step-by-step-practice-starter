@@ -1,6 +1,7 @@
 package oo.step7;
 
 import oo.Klass;
+import oo.School;
 import oo.Student;
 import oo.Teacher;
 import org.junit.jupiter.api.BeforeEach;
@@ -43,10 +44,10 @@ public class SchoolTest {
         Teacher doraemon = new Teacher(2, "Doraemon", 21);
         school.enroll(jerry);
         school.enroll(doraemon);
-        jerry.assignTo(klass2);
-        klass2.attach(jerry);
         jerry.assignTo(klass1);
         klass1.attach(jerry);
+        jerry.assignTo(klass2);
+        klass2.attach(jerry);
         doraemon.assignTo(klass1);
         klass1.attach(doraemon);
 
