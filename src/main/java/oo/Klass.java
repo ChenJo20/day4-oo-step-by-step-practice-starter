@@ -6,6 +6,7 @@ import java.util.Objects;
 
 public class Klass {
 
+    public static final String CAN_NOT_FIND_STUDENT_IN_THIS_CLASS_ERROR_MESSAGE = "It is not one of us.";
     private int number;
     private Student classLeader;
     private List<Person> people = new ArrayList<>();
@@ -16,7 +17,7 @@ public class Klass {
 
     public void assignLeader(Student student) {
         if (!student.isIn(this)) {
-            System.out.println("It is not one of us.");
+            System.out.println(CAN_NOT_FIND_STUDENT_IN_THIS_CLASS_ERROR_MESSAGE);
         }
         this.classLeader = student;
         people.forEach(individual ->
