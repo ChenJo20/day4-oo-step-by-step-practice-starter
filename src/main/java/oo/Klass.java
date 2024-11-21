@@ -26,7 +26,7 @@ public class Klass {
 
     private void notifyOthers(Student student) {
         people.stream()
-                .filter(people -> people != student)
+                .filter(people -> !people.equals(student))
                 .forEach(individual ->
                         individual.sayWhenSomeoneBecomeClassLeader(student, this)
                 );
