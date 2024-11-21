@@ -37,7 +37,7 @@ public class Student extends Person {
     }
 
     @Override
-    public void sayWhenSomeoneBecomeClassLeader(Student student, Klass klass){
+    public void sayWhenSomeoneBecomeClassLeader(Student student, Klass klass) {
         System.out.printf(SENTENCE_PATTERN_WHEN_SOMEONE_BECOME_CLASS_LEADER, name, STUDENT_ROLE, klass.getNumber(), student.name);
     }
 
@@ -46,12 +46,16 @@ public class Student extends Person {
             return EMPTY;
         }
         if (!klass.isLeader(this)) {
-            return I_AM_IN_CLASS + klass.getNumber() + DOT;
+            return introduceClassForDifferentRole(I_AM_IN_CLASS, klass);
         }
-        return I_AM_THE_LEADER_OF_CLASS + klass.getNumber() + DOT;
+        return introduceClassForDifferentRole(I_AM_THE_LEADER_OF_CLASS, klass);
     }
 
     public boolean isIn(Klass klass) {
         return this.klass == klass;
+    }
+
+    public String introduceClassForDifferentRole(String prefix, Klass klass) {
+        return prefix + klass.getNumber() + DOT;
     }
 }
