@@ -9,6 +9,10 @@ public class Student extends Person {
         super(id, name, age);
     }
 
+    public Klass getKlass() {
+        return klass;
+    }
+
     @Override
     public int hashCode() {
         return super.hashCode();

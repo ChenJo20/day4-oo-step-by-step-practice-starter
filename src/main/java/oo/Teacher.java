@@ -1,8 +1,14 @@
 package oo;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Teacher extends Person {
 
     private static final String TEACHER_ROLE = "teacher";
+
+    private List<Klass> klasses = new ArrayList<>();
 
     public Teacher(int id, String name, int age) {
         super(id, name, age);
@@ -10,7 +16,29 @@ public class Teacher extends Person {
 
     @Override
     public String introduce() {
-        return super.introduce() + " I am a " + TEACHER_ROLE + ".";
+        return super.introduce() + " I am a " + TEACHER_ROLE + "." + showTeachClasses();
+    }
+
+    public void assignTo(Klass klass) {
+        klasses.add(klass);
+    }
+
+    public boolean belongsTo(Klass klass) {
+        return klasses.contains(klass);
+    }
+
+    public boolean isTeaching(Student student) {
+        return klasses.contains(student.getKlass());
+    }
+
+    public String showTeachClasses() {
+        if (klasses.isEmpty()) {
+            return "";
+        }
+        return " I teach Class" + klasses.stream()
+                .map(Klass::getNumber)
+                .map(String::valueOf)
+                .collect(Collectors.joining(",")) + ".";
     }
 
     @Override
