@@ -27,11 +27,21 @@ public class Student extends Person {
 
     @Override
     public String introduce() {
-        return super.introduce() + " I am a " + STUDENT_ROLE + ". " + "I am in class " + klass.getNumber();
+        return super.introduce() + " I am a " + STUDENT_ROLE + ". " + getClassString();
     }
 
     public void join(Klass klass) {
         this.klass = klass;
+    }
+
+    public String getClassString() {
+        if (klass == null) {
+            return "";
+        }
+        if (!klass.isLeader(this)) {
+            return "I am in class " + klass.getNumber() + ".";
+        }
+        return "I am the leader of class " + klass.getNumber() + ".";
     }
 
     public boolean isIn(Klass klass) {

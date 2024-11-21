@@ -19,7 +19,7 @@ public class Klass {
     }
 
     public boolean isLeader(Student student) {
-        return this.classLeader == student;
+        return classLeader == student;
     }
 
     @Override
