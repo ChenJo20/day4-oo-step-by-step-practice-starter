@@ -16,7 +16,6 @@ public class StudentTest {
         klass.assignLeader(tom);
 
         String introduce = tom.introduce();
-
         assertThat(introduce).isEqualTo("My name is Tom. I am 18 years old. I am a student. I am the leader of class 1.");
     }
 }
