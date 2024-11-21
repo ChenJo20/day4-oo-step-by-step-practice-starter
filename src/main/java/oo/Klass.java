@@ -21,10 +21,14 @@ public class Klass {
         }
         this.classLeader = student;
 
+        notifyOthers(student);
+    }
+
+    private void notifyOthers(Student student) {
         people.stream()
                 .filter(people -> people != student)
                 .forEach(individual ->
-                individual.sayWhenSomeoneBecomeClassLeader(student, this)
+                        individual.sayWhenSomeoneBecomeClassLeader(student, this)
                 );
     }
 
