@@ -35,7 +35,7 @@ public class Teacher extends Person {
         if (klasses.isEmpty()) {
             return "";
         }
-        return " I teach Class" + klasses.stream()
+        return " I teach Class " + klasses.stream()
                 .map(Klass::getNumber)
                 .map(String::valueOf)
                 .collect(Collectors.joining(",")) + ".";
