@@ -20,6 +20,13 @@ public class Klass {
             System.out.println("It is not one of us.");
         }
         this.classLeader = student;
+        teachers.forEach(teacher ->
+                teacher.sayWhenSomeoneBecomeClassLeader(student, this)
+        );
+    }
+
+    public void attach(Teacher teacher) {
+        teachers.add(teacher);
     }
 
     public boolean isLeader(Student student) {

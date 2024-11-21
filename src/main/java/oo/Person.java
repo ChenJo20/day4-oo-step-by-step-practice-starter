@@ -18,6 +18,10 @@ public class Person {
         return String.format("My name is %s. I am %d years old.", name, age);
     }
 
+    public void sayWhenSomeoneBecomeClassLeader(Student student, Klass klass) {
+        return;
+    }
+
     @Override
     public boolean equals(Object anotherPerson) {
         if (this == anotherPerson) return true;

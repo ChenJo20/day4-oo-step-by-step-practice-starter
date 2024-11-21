@@ -19,9 +19,13 @@ public class Teacher extends Person {
         return super.introduce() + " I am a " + TEACHER_ROLE + "." + introduceClass();
     }
 
+    @Override
+    public void sayWhenSomeoneBecomeClassLeader(Student student, Klass klass){
+        System.out.println(String.format("I am %s, %s of Class %d. I know %s become Leader.", name, TEACHER_ROLE, klass.getNumber(), student.name));
+    }
+
     public void assignTo(Klass klass) {
         klasses.add(klass);
-        klass.getTeachers().add(this);
     }
 
     public boolean belongsTo(Klass klass) {
