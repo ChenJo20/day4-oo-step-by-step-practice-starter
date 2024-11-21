@@ -3,6 +3,8 @@ package oo;
 public class Student extends Person {
 
     private static final String STUDENT_ROLE = "student";
+    public static final String I_AM_IN_CLASS = " I am in class ";
+    public static final String I_AM_THE_LEADER_OF_CLASS = " I am the leader of class ";
     private Klass klass;
 
     public Student(int id, String name, int age) {
@@ -27,7 +29,7 @@ public class Student extends Person {
 
     @Override
     public String introduce() {
-        return super.introduce() + " I am a " + STUDENT_ROLE + "." + introduceClass();
+        return super.introduce() + introduceRole(STUDENT_ROLE) + introduceClass();
     }
 
     public void join(Klass klass) {
@@ -37,17 +39,17 @@ public class Student extends Person {
 
     @Override
     public void sayWhenSomeoneBecomeClassLeader(Student student, Klass klass){
-        System.out.println(String.format(SENTENCE_PATTERN_WHEN_SOMEONE_BECOME_CLASS_LEADER, name, STUDENT_ROLE, klass.getNumber(), student.name));
+        System.out.printf(SENTENCE_PATTERN_WHEN_SOMEONE_BECOME_CLASS_LEADER, name, STUDENT_ROLE, klass.getNumber(), student.name);
     }
 
     public String introduceClass() {
         if (klass == null) {
-            return "";
+            return EMPTY;
         }
         if (!klass.isLeader(this)) {
-            return " I am in class " + klass.getNumber() + ".";
+            return I_AM_IN_CLASS + klass.getNumber() + DOT;
         }
-        return " I am the leader of class " + klass.getNumber() + ".";
+        return I_AM_THE_LEADER_OF_CLASS + klass.getNumber() + DOT;
     }
 
     public boolean isIn(Klass klass) {

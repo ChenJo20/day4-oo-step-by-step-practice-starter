@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 public class Teacher extends Person {
 
     private static final String TEACHER_ROLE = "teacher";
+    public static final String I_TEACH_CLASS = " I teach Class ";
+    public static final String DOT_WITH_SPACE_FOLLOWING = ", ";
 
     private List<Klass> klasses = new ArrayList<>();
 
@@ -16,12 +18,12 @@ public class Teacher extends Person {
 
     @Override
     public String introduce() {
-        return super.introduce() + " I am a " + TEACHER_ROLE + "." + introduceClass();
+        return super.introduce() + introduceRole(TEACHER_ROLE) + introduceClass();
     }
 
     @Override
-    public void sayWhenSomeoneBecomeClassLeader(Student student, Klass klass){
-        System.out.println(String.format(SENTENCE_PATTERN_WHEN_SOMEONE_BECOME_CLASS_LEADER, name, TEACHER_ROLE, klass.getNumber(), student.name));
+    public void sayWhenSomeoneBecomeClassLeader(Student student, Klass klass) {
+        System.out.printf(SENTENCE_PATTERN_WHEN_SOMEONE_BECOME_CLASS_LEADER, name, TEACHER_ROLE, klass.getNumber(), student.name);
     }
 
     public void assignTo(Klass klass) {
@@ -38,12 +40,12 @@ public class Teacher extends Person {
 
     public String introduceClass() {
         if (klasses.isEmpty()) {
-            return "";
+            return EMPTY;
         }
-        return " I teach Class " + klasses.stream()
+        return I_TEACH_CLASS + klasses.stream()
                 .map(Klass::getNumber)
                 .map(String::valueOf)
-                .collect(Collectors.joining(", ")) + ".";
+                .collect(Collectors.joining(DOT_WITH_SPACE_FOLLOWING)) + DOT;
     }
 
     @Override
