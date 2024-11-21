@@ -12,8 +12,17 @@ public class Person {
         this.age = age;
     }
 
-    public void introduce() {
-        System.out.printf("My name is %s. I am %d years old.", name, age);
-        My name is Tom. I am 18 years old.
+    public String introduce() {
+        return String.format("My name is %s. I am %d years old.", name, age);
+    }
+
+    @Override
+    public boolean equals(Object anotherPerson) {
+        return anotherPerson instanceof Person && id == ((Person) anotherPerson).id;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
 }
