@@ -27,7 +27,7 @@ public class Student extends Person {
 
     @Override
     public String introduce() {
-        return super.introduce() + " I am a " + STUDENT_ROLE + "." + getClassString();
+        return super.introduce() + " I am a " + STUDENT_ROLE + "." + introduceClass();
     }
 
     public void join(Klass klass) {
@@ -35,7 +35,7 @@ public class Student extends Person {
         klass.getStudents().add(this);
     }
 
-    public String getClassString() {
+    public String introduceClass() {
         if (klass == null) {
             return "";
         }
