@@ -20,11 +20,13 @@ public class Person {
 
     @Override
     public boolean equals(Object anotherPerson) {
-        return anotherPerson instanceof Person && id == ((Person) anotherPerson).id;
+        if (this == anotherPerson) return true;
+        if (!(anotherPerson instanceof Person person)) return false;
+        return id == person.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hashCode(id);
     }
 }
